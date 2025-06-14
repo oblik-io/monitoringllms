@@ -1,0 +1,36 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Provider-specific metrics
+  - job_name: '[provider-name]'
+    static_configs:
+      - targets: ['[metrics-host]:9464']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    
+    # Add any provider-specific labels
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: '[provider-name]'
+      
+      # Add environment label
+      - target_label: environment
+        replacement: 'production'
+      
+      # Add provider label
+      - target_label: provider
+        replacement: '[provider-name]'
+
+  # Optional: Node exporter for system metrics
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']

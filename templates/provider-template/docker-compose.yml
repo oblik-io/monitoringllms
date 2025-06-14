@@ -1,0 +1,41 @@
+# Docker Compose for [Provider Name] Monitoring
+# Extends the base monitoring configuration
+
+version: '3.8'
+
+services:
+  # Include base services
+  prometheus:
+    extends:
+      file: ../../common/docker-compose.base.yml
+      service: prometheus
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    extends:
+      file: ../../common/docker-compose.base.yml
+      service: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana-provisioning:/etc/grafana/provisioning:ro
+
+  # Add provider-specific services here
+  # Example: metrics exporter for the provider
+  # [provider]-exporter:
+  #   image: [provider-exporter-image]
+  #   ports:
+  #     - "9464:9464"
+  #   environment:
+  #     - PROVIDER_API_KEY=${PROVIDER_API_KEY}
+  #   networks:
+  #     - monitoring
+
+volumes:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  monitoring:
+    driver: bridge
