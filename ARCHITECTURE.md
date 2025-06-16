@@ -38,7 +38,8 @@ The BMAD monitoring framework is designed to provide comprehensive insights into
 ```
 
 ### Directory Structure
-```
+
+```txt
 monitoring/
 ├── common/              # Shared components
 │   ├── docker-compose.base.yml
@@ -56,24 +57,28 @@ monitoring/
 ## Metric Categories
 
 ### 1. **Usage Metrics**
+
 - API calls count
 - Token consumption (input/output/cache)
 - Cost tracking by model
 - Response times
 
 ### 2. **BMAD-Specific Metrics**
+
 - Agent utilization
 - Workflow completion rates
 - Team collaboration patterns
 - Task handoff efficiency
 
 ### 3. **Performance Metrics**
+
 - Cache hit rates
 - Error rates
 - Latency percentiles
 - Throughput
 
 ### 4. **System Metrics**
+
 - Resource utilization
 - Container health
 - Network connectivity
@@ -83,6 +88,7 @@ monitoring/
 ### Adding a New Provider
 
 1. **Copy Template**
+
    ```bash
    cp -r templates/provider-template providers/[new-provider]
    ```
@@ -105,11 +111,13 @@ monitoring/
 ### Metric Naming Convention
 
 Follow this pattern for consistency:
-```
+
+```txt
 bmad_[provider]_[metric_type]_[unit]
 ```
 
 Examples:
+
 - `bmad_claude_tokens_total`
 - `bmad_openai_cost_dollars`
 - `bmad_gemini_latency_seconds`

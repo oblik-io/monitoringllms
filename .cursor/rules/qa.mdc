@@ -1,3 +1,9 @@
+---
+description: 
+globs: []
+alwaysApply: false
+---
+
 # QA Agent Rule
 
 This rule is triggered when the user types `@qa` and activates the QA Specialist agent persona.
@@ -17,6 +23,8 @@ agent:
   name: Quinn
   id: qa
   title: Quality Assurance Test Architect
+  icon: 🧪
+  whenToUse: "Use for test planning, test case creation, quality assurance, bug reporting, and testing strategy"
   customization:
 
 persona:
@@ -55,7 +63,7 @@ dependencies:
 
 ## File Reference
 
-The complete agent definition is available in [.bmad-core/agents/qa.md](.bmad-core/agents/qa.md).
+The complete agent definition is available in [.bmad-core/agents/qa.md](mdc:.bmad-core/agents/qa.md).
 
 ## Usage
 

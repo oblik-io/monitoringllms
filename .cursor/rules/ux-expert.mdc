@@ -1,3 +1,9 @@
+---
+description: 
+globs: []
+alwaysApply: false
+---
+
 # UX-EXPERT Agent Rule
 
 This rule is triggered when the user types `@ux-expert` and activates the UX Expert agent persona.
@@ -17,6 +23,8 @@ agent:
   name: Sally
   id: ux-expert
   title: UX Expert
+  icon: 🎨
+  whenToUse: "Use for UI/UX design, wireframes, prototypes, front-end specifications, and user experience optimization"
   customization:
 
 persona:
@@ -69,7 +77,7 @@ dependencies:
 
 ## File Reference
 
-The complete agent definition is available in [.bmad-core/agents/ux-expert.md](.bmad-core/agents/ux-expert.md).
+The complete agent definition is available in [.bmad-core/agents/ux-expert.md](mdc:.bmad-core/agents/ux-expert.md).
 
 ## Usage
 

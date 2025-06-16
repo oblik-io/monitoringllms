@@ -18,23 +18,23 @@ This unified approach combines what would traditionally be separate backend and 
 
 1. Review the PRD and other documents for mentions of:
 
-   - Fullstack starter templates (e.g., T3 Stack, MEAN/MERN starters, Django + React templates)
-   - Monorepo templates (e.g., Nx, Turborepo starters)
-   - Platform-specific starters (e.g., Vercel templates, AWS Amplify starters)
-   - Existing projects being extended or cloned
+- Fullstack starter templates (e.g., T3 Stack, MEAN/MERN starters, Django + React templates)
+- Monorepo templates (e.g., Nx, Turborepo starters)
+- Platform-specific starters (e.g., Vercel templates, AWS Amplify starters)
+- Existing projects being extended or cloned
 
 2. If starter templates or existing projects are mentioned:
 
-   - Ask the user to provide access (links, repos, or files)
-   - Analyze to understand pre-configured choices and constraints
-   - Note any architectural decisions already made
-   - Identify what can be modified vs what must be retained
+- Ask the user to provide access (links, repos, or files)
+- Analyze to understand pre-configured choices and constraints
+- Note any architectural decisions already made
+- Identify what can be modified vs what must be retained
 
 3. If no starter is mentioned but this is greenfield:
 
-   - Suggest appropriate fullstack starters based on tech preferences
-   - Consider platform-specific options (Vercel, AWS, etc.)
-   - Let user decide whether to use one
+- Suggest appropriate fullstack starters based on tech preferences
+- Consider platform-specific options (Vercel, AWS, etc.)
+- Let user decide whether to use one
 
 4. Document the decision and any constraints it imposes
 
@@ -109,9 +109,9 @@ Document the choice and key services that will be used.]]
 
 Use appropriate diagram type for clarity.]]
 
-```mermaid
+````mermaid
 {{architecture_diagram}}
-```
+```text
 
 ### Architectural Patterns
 
@@ -222,7 +222,7 @@ After presenting all data models, apply `tasks#advanced-elicitation` protocol]]
     model_interface;
   }
 }
-```
+````
 
 **Relationships:**
 
@@ -246,7 +246,7 @@ After presenting all data models, apply `tasks#advanced-elicitation` protocol]]
 
 **TypeScript Interface:**
 
-```typescript
+````typescript
 interface User {
   id: string;
   email: string;
@@ -262,7 +262,7 @@ interface UserProfile {
   bio?: string;
   preferences: Record<string, any>;
 }
-```
+```text
 
 **Relationships:**
 
@@ -286,27 +286,30 @@ Use appropriate format for the chosen API style. If no API (e.g., static site), 
 
 ^^CONDITION: has_rest_api^^
 
-```yaml
+```yml
 openapi: 3.0.0
 info:
-  title: { { api_title } }
-  version: { { api_version } }
-  description: { { api_description } }
-
+  title:
+    '[object Object]': null
+  version:
+    '[object Object]': null
+  description:
+    '[object Object]': null
 servers:
-  - url: { { api_base_url } }
-    description: { { environment } }
-# ... OpenAPI specification continues
-```
+  - url:
+      '[object Object]': null
+    description:
+      '[object Object]': null
+````
 
 ^^/CONDITION: has_rest_api^^
 
 ^^CONDITION: has_graphql_api^^
 
-```graphql
+````graphql
 # GraphQL Schema
 {{graphql_schema}}
-```
+```text
 
 ^^/CONDITION: has_graphql_api^^
 
@@ -319,7 +322,7 @@ servers:
     trpc_routers;
   }
 }
-```
+````
 
 ^^/CONDITION: has_trpc_api^^
 
@@ -333,10 +336,12 @@ servers:
 2. Consider both frontend and backend components
 3. Define clear boundaries and interfaces between components
 4. For each component, specify:
-   - Primary responsibility
-   - Key interfaces/APIs exposed
-   - Dependencies on other components
-   - Technology specifics based on tech stack choices
+
+- Primary responsibility
+- Key interfaces/APIs exposed
+- Dependencies on other components
+- Technology specifics based on tech stack choices
+
 5. Create component diagrams where helpful
 6. After presenting all components, apply `tasks#advanced-elicitation` protocol]]
 
@@ -462,19 +467,19 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 **Component Organization:**
 
-```
+`````text
 {{component_structure}}
-```
+```text
 
 **Component Template:**
 
-```typescript
+````typescript
 {
   {
     component_template;
   }
 }
-```
+```text
 
 ### State Management Architecture
 
@@ -488,7 +493,7 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
     state_structure;
   }
 }
-```
+`````
 
 **State Management Patterns:**
 
@@ -501,19 +506,19 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 **Route Organization:**
 
-```
+```text
 {{route_structure}}
-```
+```text
 
 **Protected Route Pattern:**
 
-```typescript
+````typescript
 {
   {
     protected_route_example;
   }
 }
-```
+```text
 
 ### Frontend Services Layer
 
@@ -527,17 +532,17 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
     api_client_setup;
   }
 }
-```
+````
 
 **Service Example:**
 
-```typescript
+````typescript
 {
   {
     service_example;
   }
 }
-```
+```text
 
 ## Backend Architecture
 
@@ -552,9 +557,11 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 ^^CONDITION: serverless^^
 **Function Organization:**
 
-```
+````
+
 {{function_structure}}
-```
+
+````text
 
 **Function Template:**
 
@@ -564,26 +571,26 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
     function_template;
   }
 }
-```
+````
 
 ^^/CONDITION: serverless^^
 
 ^^CONDITION: traditional_server^^
 **Controller/Route Organization:**
 
-```
+`````text
 {{controller_structure}}
-```
+```text
 
 **Controller Template:**
 
-```typescript
+````typescript
 {
   {
     controller_template;
   }
 }
-```
+```text
 
 ^^/CONDITION: traditional_server^^
 
@@ -595,17 +602,17 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 ```sql
 {{database_schema}}
-```
+`````
 
 **Data Access Layer:**
 
-```typescript
+````typescript
 {
   {
     repository_pattern;
   }
 }
-```
+```text
 
 ### Authentication and Authorization
 
@@ -615,17 +622,17 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 ```mermaid
 {{auth_flow_diagram}}
-```
+````
 
 **Middleware/Guards:**
 
-```typescript
+````typescript
 {
   {
     auth_middleware;
   }
 }
-```
+```text
 
 ## Unified Project Structure
 
@@ -685,7 +692,7 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 ├── package.json                # Root package.json
 ├── {{monorepo_config}}         # Monorepo configuration
 └── README.md
-```
+````
 
 @{example: vercel_structure}
 apps/
@@ -707,19 +714,19 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 **Prerequisites:**
 
-```bash
+````bash
 {{prerequisites_commands}}
-```
+```text
 
 **Initial Setup:**
 
 ```bash
 {{setup_commands}}
-```
+````
 
 **Development Commands:**
 
-```bash
+````bash
 # Start all services
 {{start_all_command}}
 
@@ -731,7 +738,7 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 # Run tests
 {{test_commands}}
-```
+```text
 
 ### Environment Configuration
 
@@ -746,7 +753,7 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 # Shared
 {{shared_env_vars}}
-```
+````
 
 ## Deployment Architecture
 
@@ -769,9 +776,9 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 ### CI/CD Pipeline
 
-```yaml
-{ { cicd_pipeline_config } }
-```
+````yaml
+'[object Object]': null
+```text
 
 ### Environments
 
@@ -829,33 +836,42 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 ### Testing Pyramid
 
-```
+````
+
         E2E Tests
        /          \
     Integration Tests
-   /                  \
- Frontend Unit    Backend Unit
-```
+
+/ \
+ Frontend Unit Backend Unit
+
+```text
 
 ### Test Organization
 
 **Frontend Tests:**
 
 ```
+
 {{frontend_test_structure}}
-```
+
+````text
 
 **Backend Tests:**
 
-```
+```text
+
 {{backend_test_structure}}
-```
+
+```text
 
 **E2E Tests:**
 
-```
+````
+
 {{e2e_test_structure}}
-```
+
+````text
 
 ### Test Examples
 
@@ -867,17 +883,17 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
     frontend_test_example;
   }
 }
-```
+````
 
 **Backend API Test:**
 
-```typescript
+````typescript
 {
   {
     backend_test_example;
   }
 }
-```
+```text
 
 **E2E Test:**
 
@@ -887,7 +903,7 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
     e2e_test_example;
   }
 }
-```
+````
 
 ## Coding Standards
 
@@ -928,9 +944,9 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 
 ### Error Flow
 
-```mermaid
+````mermaid
 {{error_flow_diagram}}
-```
+```text
 
 ### Error Response Format
 
@@ -944,17 +960,17 @@ interface ApiError {
     requestId: string;
   };
 }
-```
+````
 
 ### Frontend Error Handling
 
-```typescript
+````typescript
 {
   {
     frontend_error_handler;
   }
 }
-```
+```text
 
 ### Backend Error Handling
 
@@ -964,7 +980,7 @@ interface ApiError {
     backend_error_handler;
   }
 }
-```
+````
 
 ## Monitoring and Observability
 
@@ -998,35 +1014,3 @@ After presenting this section, apply `tasks#advanced-elicitation` protocol]]
 ## Checklist Results Report
 
 [[LLM: Before running the checklist, offer to output the full architecture document. Once user confirms, execute the `architect-checklist` and populate results here.]]
-
-## Next Steps
-
-[[LLM: Provide specific next steps for implementation.]]
-
-### Implementation Order
-
-1. **Environment Setup**
-
-   - Initialize monorepo structure
-   - Configure development environment
-   - Set up version control
-
-2. **Foundation (Epic 1)**
-
-   - Implement authentication flow
-   - Set up database schema
-   - Create basic API structure
-   - Implement core UI components
-
-3. **Feature Development**
-   - Follow story sequence from PRD
-   - Maintain type safety across stack
-   - Write tests as you go
-
-### Developer Handoff Prompts
-
-**For Scrum Master:**
-"Create stories for {{Project Name}} using the PRD at docs/prd.md and this fullstack architecture at docs/fullstack-architecture.md. Focus on Epic 1 implementation."
-
-**For Developer:**
-"Implement Story 1.1 from docs/stories/epic1/story-1.1.md using the fullstack architecture at docs/fullstack-architecture.md. Follow the coding standards and use the defined tech stack."

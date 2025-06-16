@@ -56,7 +56,7 @@ You are now operating as a Documentation Indexer. Your goal is to ensure all doc
 
 The index should be organized as follows:
 
-```markdown
+`````markdown
 # Documentation Index
 
 ## Root Documents
@@ -88,7 +88,8 @@ Documents within the `another-folder/` directory:
 ### [Nested Document](./another-folder/document.md)
 
 Description of nested document.
-```
+
+````text
 
 ### Index Entry Format
 
@@ -98,7 +99,10 @@ Each entry should follow this format:
 ### [Document Title](relative/path/to/file.md)
 
 Brief description of the document's purpose and contents.
-```
+````
+`````
+
+````
 
 ### Rules of Operation
 
@@ -156,6 +160,7 @@ For each file referenced in the index but not found in the filesystem:
 ### Special Cases
 
 1. **Sharded Documents**: If a folder contains an `index.md` file, treat it as a sharded document:
+
    - Use the folder's `index.md` title as the section title
    - List the folder's documents as subsections
    - Note in the description that this is a multi-part document
@@ -175,3 +180,4 @@ Please provide:
 5. Whether to include hidden files/folders (starting with `.`)
 
 Would you like to proceed with documentation indexing? Please provide the required input above.
+````

@@ -17,11 +17,13 @@ IMPORTANT: If any required documents are missing or inaccessible, immediately as
 
 PROJECT TYPE DETECTION:
 First, determine the project type by checking:
+
 - Does the architecture include a frontend/UI component?
 - Is there a frontend-architecture.md document?
 - Does the PRD mention user interfaces or frontend requirements?
 
 If this is a backend-only or service-only project:
+
 - Skip sections marked with [[FRONTEND ONLY]]
 - Focus extra attention on API design, service architecture, and integration patterns
 - Note in your final report that frontend sections were skipped due to project type
@@ -401,28 +403,33 @@ Ask the user if they want to work through the checklist:
 Now that you've completed the checklist, generate a comprehensive validation report that includes:
 
 1. Executive Summary
+
    - Overall architecture readiness (High/Medium/Low)
    - Critical risks identified
    - Key strengths of the architecture
    - Project type (Full-stack/Frontend/Backend) and sections evaluated
 
 2. Section Analysis
+
    - Pass rate for each major section (percentage of items passed)
    - Most concerning failures or gaps
    - Sections requiring immediate attention
    - Note any sections skipped due to project type
 
 3. Risk Assessment
+
    - Top 5 risks by severity
    - Mitigation recommendations for each
    - Timeline impact of addressing issues
 
 4. Recommendations
+
    - Must-fix items before development
    - Should-fix items for better quality
    - Nice-to-have improvements
 
 5. AI Implementation Readiness
+
    - Specific concerns for AI agent implementation
    - Areas needing additional clarification
    - Complexity hotspots to address
